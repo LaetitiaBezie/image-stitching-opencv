@@ -53,9 +53,7 @@ def main(image1_path, image2_path, output_path):
     # Mélange alpha
     alpha = 0.5  # blending facteur: contribution de chaque image dans l'image finale
     blended_image = cv2.addWeighted(result, alpha, image2, 1 - alpha, 0)
-    # la fusion par effet de fondu
-    #blended_image = cv2.add(result, image2)   
-
+   
     # la pyramide gaussienne
     # Construit les pyramides gaussiennes pour les deux images
     # gaussian_pyramid1 = cv2.pyrDown(image1)
@@ -63,9 +61,6 @@ def main(image1_path, image2_path, output_path):
     # Fusionne les images à partir des pyramides
     # blended_image = cv2.addWeighted(gaussian_pyramid1, alpha, gaussian_pyramid2, 1 - alpha, 0)
     
-    #Moyenne pondéré
-    #blended_image = cv2.addWeighted(result, 0.5, image2, 0.5, 0)
-
     # Mélange multi-bandes
     # Divise les images en différentes bandes
     #bands1 = cv2.pyrDown(image1)
@@ -91,6 +86,6 @@ def main(image1_path, image2_path, output_path):
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("Usage: python fusion_images.py <chemin_image1> <chemin_image2> <chemin_output_path>")
+        print("Usage: python3 panorama.py <chemin_image1> <chemin_image2> <chemin_output_path>")
         sys.exit(1)
     main(sys.argv[1], sys.argv[2],sys.argv[3])
